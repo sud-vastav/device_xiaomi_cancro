@@ -17,6 +17,9 @@ BOARD_VENDOR := xiaomi
 
 CANCRO_PATH := device/xiaomi/cancro
 
+# ReleaseTools
+TARGET_RELEASETOOLS_EXTENSIONS := $(CANCRO_PATH)/releasetools
+
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(CANCRO_PATH)/include
 
@@ -34,6 +37,7 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
+TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := krait
 TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
@@ -165,14 +169,15 @@ TARGET_HW_DISK_ENCRYPTION := false
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true
 
+# Compatibility with pre-kitkat Qualcomm sensor HALs
+SENSORS_NEED_SETRATE_ON_ENABLE := true
+
+
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
-
-# Consumer IR
-TARGET_PROVIDES_CONSUMERIR_HAL := true
 
 # Simple time service client
 BOARD_USES_QC_TIME_SERVICES := true
